@@ -1,10 +1,10 @@
 // CartItem.tsx
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import { CartDataItem } from "../models/CartDataItem";
 
 interface CartItemProps {
     item: CartDataItem;
-
+    removeItem: Function;
     //todo: removeItem and updateItem
 }
 
@@ -12,7 +12,7 @@ interface CartItemState {
     qty: number;
 }
 
-export default class CartItem extends Component<CartItemProps,CartItemState>  {
+export default class CartItem extends PureComponent<CartItemProps,CartItemState>  {
     constructor(props: CartItemProps) {
         super(props);
 
@@ -23,8 +23,27 @@ export default class CartItem extends Component<CartItemProps,CartItemState>  {
     }
 
     //TODO: Ref
+    // access to real dom element located inside this component
+
     //TODO: componentWillMount
     //TODO: state from props, qty
+
+
+    inputElement: any;
+    spanElem: any;
+
+    setInputElement = (inputElement: any) => {
+        console.log('setInputElement called thorugh ref');
+        // inputElement is a REAL DOM <input ..>
+        this.inputElement = inputElement;
+    }
+
+
+    componentDidMount() {
+        console.log('CartItem componentDidMount');
+        this.inputElement.focus();
+        this.spanElem.textContent = 'free shipping!!';
+    }
    
     render() {
         let {item} = this.props;
@@ -40,6 +59,7 @@ export default class CartItem extends Component<CartItemProps,CartItemState>  {
                             value={item.qty}
                             type="number"
                             onChange = { () => {} }
+                            ref= {this.setInputElement}
                      />
                 </td>
                 <td>{item.price * item.qty}</td>
@@ -47,9 +67,11 @@ export default class CartItem extends Component<CartItemProps,CartItemState>  {
                 <button onClick={() => {}}>
                         Update
                 </button>    
-                <button onClick={() => {} }>
+                <button onClick={() => this.props.removeItem(item.id)}>
                         Delete
                 </button>
+                <span ref={ (spanElem) => this.spanElem = spanElem}>
+                </span>
                 </td>
             </tr>
         )

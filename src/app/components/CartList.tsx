@@ -8,6 +8,7 @@ import { CartDataItem } from "../models/CartDataItem";
  //TODO: PureComponent
  interface CartListProps {
      items: CartDataItem[];
+     removeItem: Function;
      //todo: removeItem, updateItem
  }
 
@@ -17,6 +18,20 @@ export default class CartList extends Component<CartListProps> {
     }
      
     //TODO: shouldComponentUpdate
+    // called whenever parent render called on update cycle
+    // called whenever this.setState on update cycle
+    // not called on this.forceUpdate
+    // return true -- calls the render
+    // return false -- doesn't call the render
+    shouldComponentUpdate(nextProps: CartListProps, 
+                          nextState: any) {
+        console.log('CartList shouldComponentUpdate');
+        console.log('this.props', this.props);
+        console.log('nextProps', nextProps);
+        console.log("this.props.items !== nextProps.items",
+                        this.props.items !== nextProps.items)
+        return this.props.items !== nextProps.items;
+    }
     
     render() {
         console.log("CartList Render");
@@ -46,6 +61,7 @@ export default class CartList extends Component<CartListProps> {
                         items.map(item => (
                                 <CartItem item={item} 
                                           key={item.id}
+                                          removeItem={this.props.removeItem}
                                 />
                         ))
                     }

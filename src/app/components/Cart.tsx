@@ -22,7 +22,7 @@ export default class Cart extends Component<CartProps, CartState> {
 
         this.state = {
             items: [ 
-            			new CartDataItem(1, 'P1', 100,  1)
+            			new CartDataItem(1, 'P1', 100,  5)
             	   ],
             amount: 0, // sum of all items price * qty
             count: 0, // sum of all items qty
@@ -40,11 +40,40 @@ export default class Cart extends Component<CartProps, CartState> {
         );
 
         //TODO:
- 
+        // UGLY
+        //this.state.items.push(item); // mutating
+        //let items = this.state.items;
+        // items.push(item); // mutating directly
+
+        // Immutable, Good
+        const items = [...this.state.items, item];
+        this.setState ({
+           // items: items // es5
+           items //es6
+        })
+
+        // Bug, since setState is async
+        //this.recalculate(this.state.items);
+
+        this.recalculate(items);
     }
     
+
+    //callback
+    // pass this method as props to child
+    // child calls the method
     removeItem = (id: number) => {
+        console.log('removeItem called', id);
         //TODO
+        const items = this.state
+                         .items
+                         .filter(item => item.id != id);
+
+        this.setState({
+            items
+        });
+
+        this.recalculate(items);
     }
 
     updateItem = (id: number, qty: number) => {
@@ -53,7 +82,13 @@ export default class Cart extends Component<CartProps, CartState> {
 
     empty = () => {
         //TODO
-         
+         const items: CartDataItem[] = [];
+         this.setState({
+             items
+         });
+
+         this.recalculate(items);
+ 
     }
 
     //dummy
@@ -81,6 +116,11 @@ export default class Cart extends Component<CartProps, CartState> {
 
     //TODO:
     //componentWillMount
+
+    componentWillMount() {
+        this.recalculate(this.state.items);
+    }
+
     
     
     render() {
@@ -104,6 +144,7 @@ export default class Cart extends Component<CartProps, CartState> {
             
 
             <CartList  items={this.state.items}  
+                       removeItem={this.removeItem}
                       
             />
 

@@ -20,7 +20,7 @@ function Footer(props: FooterProps) {
     return (
         <div>
              <hr />
-              <p>Copyrights {props.company}, @{props.year}</p>
+              <p id="cr">Copyrights {props.company}, @{props.year}</p>
               <Address address={props.address} />
         </div>
     )
