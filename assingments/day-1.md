@@ -16,3 +16,20 @@ create src folder
 
 Include Home, Contact and About component inside App.tsx
 
+
++
+
+Day-2
+
+In App.tsx,
+    1. add 3 buttons to switch between Home/Contact/About page 
+        (state, setState)
+
+    2. Within contact page, implement a form
+
+       1. name (input)
+       2. subject (input)
+       3. message: (textarea)
+       4. msgType: (select, [options => (0, "technical"),
+                                        (1, "billing")]),
+                                        (3, "sales")]),
