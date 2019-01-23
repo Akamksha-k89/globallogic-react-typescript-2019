@@ -20,8 +20,11 @@ export default class CartList extends Component<CartListProps> {
     
     render() {
         console.log("CartList Render");
-
+        // let items = this.props.items;
+        // deconstruct, es6 feature
         let {items} = this.props;
+
+       
 
         return (
             <div> 
@@ -38,6 +41,14 @@ export default class CartList extends Component<CartListProps> {
                 </thead>
                 <tbody>
                     {/* TODO props items map with CartItem */ }
+                    
+                    {
+                        items.map(item => (
+                                <CartItem item={item} 
+                                          key={item.id}
+                                />
+                        ))
+                    }
 
                 </tbody>
             </table>
