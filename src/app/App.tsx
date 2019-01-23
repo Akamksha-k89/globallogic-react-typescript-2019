@@ -6,6 +6,15 @@ import Footer from './components/Footer';
 import Counter from './components/Counter';
 import Checkout from './components/Checkout';
 import Cart from './components/Cart';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import NotFound from './components/NotFound';
+
+import {
+        Route,
+        Switch
+} from 'react-router-dom';
 
 
 interface AppProps {
@@ -21,55 +30,37 @@ class App extends React.Component<AppProps, AppState> {
 
     constructor(props: AppProps) {
         super(props);
-        this.state = {
-            pageName: 'Checkout'
-        }
     }
 
-    onCheckout = () => {
-        this.setState({
-            pageName: 'Checkout'
-        })
-    }
-
-    onCounter = () => {
-        this.setState({
-            pageName: 'Counter'
-        })
-    }
-
+    
 
     //keyword
     // create and return new virtual dom
     render() {
         console.log('App render');
         return (
-          <div>
+           <div>
               <Header  title="My React App"/>
+ 
+             <Switch>
+                <Route path="/" exact component={Home} />
 
-              <Cart />
+                <Route path="/cart" component={Cart} />
+                <Route path="/checkout" component={Checkout} />
 
-            {/*
-              <button onClick={this.onCheckout}>
-                Checkout
-              </button>
+            {/*   <Route path="/counter" component={Counter} /> */}
 
-              <button onClick={this.onCounter}>
-                Counter
-              </button>
+                <Route path="/counter" 
+                        render={ () => (
+                            <Counter startValue={0} />
+                        ) } 
+                        />
+                
 
-              {
-                this.state.pageName == "Checkout" && 
-                    <Checkout />
-              }
-              
-              {
-                 this.state.pageName == "Counter" && 
-                    <Counter startValue={0} />
-              }
-
-            */}
-               
+                <Route path="/contact/:country" component={Contact} />
+                <Route path="/about" component={About} />
+                <Route path='*' component={NotFound} />
+            </Switch>
 
               <Footer company="GL" 
                       year={2018 + 1} 

@@ -18,7 +18,7 @@ class Counter extends Component<CounterProps, CounterState> {
     // constructor receive props very first time
     constructor(props: CounterProps) {
         super(props); // MUST
-        console.log('Counter object created');
+        console.log('Counter object created', props);
 
         // react keyword
         // applicable for only class component
