@@ -5,6 +5,7 @@ import { CartDataItem } from "../models/CartDataItem";
 interface CartItemProps {
     item: CartDataItem;
     removeItem: Function;
+    updateItem: Function;
     //todo: removeItem and updateItem
 }
 
@@ -18,7 +19,7 @@ export default class CartItem extends PureComponent<CartItemProps,CartItemState>
 
         //TODO: assing from props
         this.state = {
-            qty: 0
+            qty: props.item.qty
         }
     }
 
@@ -44,6 +45,14 @@ export default class CartItem extends PureComponent<CartItemProps,CartItemState>
         this.inputElement.focus();
         this.spanElem.textContent = 'free shipping!!';
     }
+
+    onQtyChange = (e: any) => {
+        const value = e.target.value;
+
+        this.setState({
+            qty: parseInt(value) || 0
+        })
+    }
    
     render() {
         let {item} = this.props;
@@ -56,15 +65,15 @@ export default class CartItem extends PureComponent<CartItemProps,CartItemState>
                 <td>{item.price}</td>
                 <td>
                      <input 
-                            value={item.qty}
+                            value={this.state.qty}
                             type="number"
-                            onChange = { () => {} }
+                            onChange = {this.onQtyChange}
                             ref= {this.setInputElement}
                      />
                 </td>
                 <td>{item.price * item.qty}</td>
                 <td> 
-                <button onClick={() => {}}>
+                <button onClick={() => this.props.updateItem(item.id, this.state.qty) }>
                         Update
                 </button>    
                 <button onClick={() => this.props.removeItem(item.id)}>

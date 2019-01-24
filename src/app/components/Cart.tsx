@@ -77,7 +77,21 @@ export default class Cart extends Component<CartProps, CartState> {
     }
 
     updateItem = (id: number, qty: number) => {
-        //TODO
+        console.log('updateItem called', id, qty);
+        
+        //1. clone the array
+        const items = this.state
+                          .items.map ( item => {
+                              if (item.id == id) { // item to update
+                                 // clone the object item
+                                 // update qty in cloned item
+                                  return {...item, qty:qty}
+                              }
+                              return item;
+                          });
+
+        this.setState({items});
+        this.recalculate(items);
     }
 
     empty = () => {
@@ -145,6 +159,7 @@ export default class Cart extends Component<CartProps, CartState> {
 
             <CartList  items={this.state.items}  
                        removeItem={this.removeItem}
+                       updateItem={this.updateItem}
                       
             />
 

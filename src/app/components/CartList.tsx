@@ -9,6 +9,7 @@ import { CartDataItem } from "../models/CartDataItem";
  interface CartListProps {
      items: CartDataItem[];
      removeItem: Function;
+     updateItem: Function;
      //todo: removeItem, updateItem
  }
 
@@ -62,6 +63,7 @@ export default class CartList extends Component<CartListProps> {
                                 <CartItem item={item} 
                                           key={item.id}
                                           removeItem={this.props.removeItem}
+                                          updateItem={this.props.updateItem}
                                 />
                         ))
                     }
