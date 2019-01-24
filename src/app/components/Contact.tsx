@@ -1,8 +1,8 @@
 // components/Contact.tsx
 import React, { Component } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-interface ContactProps {
- 
+interface ContactProps extends RouteComponentProps<any> {
 }
 
 class Contact extends Component<ContactProps> {
@@ -11,12 +11,11 @@ class Contact extends Component<ContactProps> {
     }
 
     render() {
-        const thisComponent: any = this;
-        const props: any = thisComponent.props;
+         
 
         return (
             <div>
-                <h2>Contact {props.match.params.country}</h2>
+                <h2>Contact {this.props.match.params.country}</h2>
             </div>
         );
     }
