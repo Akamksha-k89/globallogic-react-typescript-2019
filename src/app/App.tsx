@@ -1,7 +1,8 @@
 // app/App.tsx
 import React from 'react';
 
-import Header from './components/Header';
+import Header from './containers/HeaderContainer';
+
 import Footer from './components/Footer';
 import Counter from './components/Counter';
 import Checkout from './components/Checkout';
@@ -10,6 +11,12 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
+
+import ReduxCounter from './components/ReduxCounter';
+
+// alias by default
+import FuncCounter from './containers/FuncCounterContainer';
+
 
 import {
         Route,
@@ -59,6 +66,15 @@ class App extends React.Component<AppProps, AppState> {
 
                 <Route path="/contact/:country" component={Contact} />
                 <Route path="/about" component={About} />
+
+                <Route path="/redux-counter"
+                        component={ReduxCounter} />
+
+
+                <Route path="/func-counter"
+                        component={FuncCounter} />
+
+
                 <Route path='*' component={NotFound} />
             </Switch>
 

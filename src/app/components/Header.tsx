@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 interface HeaderProps {
     title: string;
+    counter: number;
 }
 
 // calls the functional component
@@ -50,6 +51,15 @@ function Header(props: HeaderProps) {
                     className="button"
                     activeClassName="success">Contact/USA</NavLink>
 
+
+        <NavLink to="/redux-counter"
+                    className="button"
+                    activeClassName="success">Redux Counter</NavLink>
+
+
+        <NavLink to="/func-counter"
+                    className="button"
+                    activeClassName="success">Func Counter {props.counter} </NavLink>
 
 
             <hr />
