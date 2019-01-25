@@ -1,3 +1,11 @@
+## Assignments
+
+Refer assignments folder.
+
+1. Bookstore.docx
+2. BookStore.pdf
+3. BookStore.bmpr [Original markup]
+
 ## CREATE New React Type Script Project
 
 > npx create-react-app book-store --typescript
