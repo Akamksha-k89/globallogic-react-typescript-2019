@@ -13,6 +13,87 @@ npm start
 
 ```
 
+## JSON Server
+
+https://github.com/typicode/json-server#static-file-server
+
+```
+
+npm install -g json-server
+
+c:\> mkdir data
+
+cd data
+
+c:\data> 
+
+create  a file called db.json
+
+
+http://localhost:3000/products
+http://localhost:3000/products/1
+
+POST http://localhost:3000/products
+
+{
+    "name": "iphone",
+    "price": 20000
+}
+
+
+
+
+In postman,
+
+Get all products
+
+1. Select GET method, http://localhost:3000/products
+2. Click send button
+
+
+to get single product by id
+
+1. Select GET method, http://localhost:3000/products/134
+2. Click send button
+
+create new product
+
+1. Select POST method, http://localhost:3000/products
+2. In Body, select raw
+3. Select JSON (application/json) in the Text(Content Type)
+
+4. Place below content in the text area
+        {
+    "name": "iphone",
+    "price": 20000
+    }
+
+5. Click send button
+
+
+to update existing content
+
+
+1. Select PUT method, http://localhost:3000/products/2
+2. In Body, select raw
+3. Select JSON (application/json) in the Text(Content Type)
+
+4. Place below content in the text area
+        {
+    "name": "iphone 10",
+    "price": 45000
+    }
+
+5. Click send button
+
+
+```
+
+Delete
+
+1. Select DELETE method, http://localhost:3000/products/2
+
+
 ## Technical Resources
 
 ### ES6
