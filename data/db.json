@@ -2,8 +2,40 @@
   "products": [
     {
       "id": 1,
-      "name": "Phone 1",
-      "price": 10000
+      "name": "Phone 12",
+      "price": "100009"
+    },
+    {
+      "brandId": 3,
+      "id": 15,
+      "name": "LG Optimus One P5555",
+      "year": 2010,
+      "price": 223,
+      "released": "2010-11-07T18:30:00.000Z"
+    },
+    {
+      "brandId": 7,
+      "id": 16,
+      "name": "Product   New",
+      "year": 2010,
+      "price": 207,
+      "released": "2010-02-11T18:30:00.000Z"
+    },
+    {
+      "brandId": 2,
+      "id": 17,
+      "name": "Google Nexus S",
+      "year": 2010,
+      "price": 363,
+      "released": "2010-04-07T18:30:00.000Z"
+    },
+    {
+      "brandId": 5,
+      "id": 18,
+      "name": "Samsung Omnia 7",
+      "year": 2010,
+      "price": 337,
+      "released": "2010-04-20T18:30:00.000Z"
     }
   ],
   "brands": [],

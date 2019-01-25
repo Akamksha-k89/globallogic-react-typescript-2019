@@ -141,7 +141,8 @@ export default class Cart extends Component<CartProps, CartState> {
         console.log("Cart render")
         return (
             <div> 
-            <h2>Cart</h2>
+            <h2>React Cart</h2>
+            <p> Day 2 Session without redux</p>
 
             <button onClick={this.addItem}>
                 Add Item

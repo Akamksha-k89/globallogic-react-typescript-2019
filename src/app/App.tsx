@@ -24,6 +24,10 @@ import Login from './containers/Login';
 import BrandList from './brand/containers/BrandList';
 import BrandEdit from './brand/containers/BrandEdit';
 
+import ProductList from './product/containers/ProductList';
+import ProductEdit from './product/containers/ProductEdit';
+import ReduxCart from './redux-cart/containers/ReduxCart';
+
 import Loadable from 'react-loadable';
 
 // function component
@@ -108,6 +112,18 @@ class App extends React.Component<AppProps, AppState> {
 
                 <AuthRoute path="/brands/create"
                         component={BrandEdit} />
+
+                <Route path="/redux-cart" exact
+                        component={ReduxCart} />
+
+                <Route path="/products" exact
+                        component={ProductList} />
+
+                <Route path="/products/edit/:id"
+                        component={ProductEdit} />
+
+                <Route path="/products/create"
+                        component={ProductEdit} />
 
 
                 <Route path="/login"

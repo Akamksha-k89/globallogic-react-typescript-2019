@@ -13,6 +13,8 @@ import counterReducer from './state/reducers/counterReducer';
 import brandListReducer from './brand/state/reducers/brandListReducer';
 import brandEditReducer from './brand/state/reducers/brandEditReducer';
 import authReducer from './state/reducers/authReducer';
+import productReducer from './product/state/productsReducer';
+import cartReducer from './redux-cart/state/cartReducer';
 
 
 function logger() {
@@ -41,7 +43,9 @@ export default function configureStore() {
         counter: counterReducer,
         brandList: brandListReducer,
         brandEdit: brandEditReducer,
-        auth: authReducer
+        auth: authReducer,
+        productState: productReducer,
+        items: cartReducer
     });
 
     console.log('creating store');
