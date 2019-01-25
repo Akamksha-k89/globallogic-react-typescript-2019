@@ -110,6 +110,29 @@ Delete
 1. Select DELETE method, http://localhost:3000/products/2
 
 
+# Production Build
+
+```
+npm run build
+
+```
+
+it creates build directory, place all output files
+
+## Example HTTP Server
+
+```
+  npm install http-server -g
+
+```
+
+cd into build directory
+
+```
+  http-server -c-1 -p 8080
+```
+
+
 ## Technical Resources
 
 ### ES6
