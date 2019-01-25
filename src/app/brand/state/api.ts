@@ -1,17 +1,20 @@
 import { Brand } from './../models/Brand';
 // brands/...api.ts
+
+const apiEndPoint = 'http://api.nodesense.ai/api';
+
 export const fetchBrands = () => {
-    return fetch('http://api.nodesense.ai/api/brands')
+    return fetch(`${apiEndPoint}/brands`)
            .then (response => response.json());
 }
 
 export const fetchBrand = (id: any) => {
-    return fetch(`http://api.nodesense.ai/api/brands/${id}`)
+    return fetch(`${apiEndPoint}/brands/${id}`)
            .then (response => response.json());
 }
 
 export const updateBrand = (brand: Brand) => {
-    return fetch(`http://api.nodesense.ai/api/brands/${brand.id}`,
+    return fetch(`${apiEndPoint}/brands/${brand.id}`,
                     {
                         method: "PUT",
                         headers: {
@@ -24,7 +27,7 @@ export const updateBrand = (brand: Brand) => {
 
 
 export const createBrand = (brand: Brand) => {
-    return fetch(`http://api.nodesense.ai/api/brands`,
+    return fetch(`${apiEndPoint}/brands`,
                     {
                         method: "POST",
                         headers: {
@@ -45,7 +48,7 @@ export const saveBrand = (brand: Brand) => {
 
 
 export const deleteBrand = (id: any) => {
-    return fetch(`http://api.nodesense.ai/api/brands/${id}`,
+    return fetch(`${apiEndPoint}/brands/${id}`,
                     {
                         method: "DELETE"
                     }
