@@ -6,7 +6,9 @@ import Header from './containers/HeaderContainer';
 import Footer from './components/Footer';
 import Counter from './components/Counter';
 import Checkout from './components/Checkout';
-import Cart from './components/Cart';
+
+// import Cart from './components/Cart';
+
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -18,6 +20,23 @@ import ReduxCounter from './components/ReduxCounter';
 import FuncCounter from './containers/FuncCounterContainer';
 import BrandList from './brand/containers/BrandList';
 import BrandEdit from './brand/containers/BrandEdit';
+
+import Loadable from 'react-loadable';
+
+// function component
+// used when it take times to download module
+function Loading() {
+        return (
+                <div>
+                        <h2>Loading page...</h2>
+                </div>
+        )
+}
+ 
+const LoadableCart = Loadable({
+  loader: () => import('./components/Cart'),
+  loading: Loading,
+});
 
 
 import {
@@ -52,7 +71,12 @@ class App extends React.Component<AppProps, AppState> {
              <Switch>
                 <Route path="/" exact component={Home} />
 
-                <Route path="/cart" component={Cart} />
+                {/* <Route path="/cart" component={Cart} />
+                 */}
+
+
+                <Route path="/cart" component={LoadableCart} />
+
                 <Route path="/checkout" component={Checkout} />
 
             {/*   <Route path="/counter" component={Counter} /> */}
