@@ -17,6 +17,8 @@ import ReduxCounter from './components/ReduxCounter';
 // alias by default
 import FuncCounter from './containers/FuncCounterContainer';
 
+import BrandList from './brand/containers/BrandList';
+
 
 import {
         Route,
@@ -73,6 +75,9 @@ class App extends React.Component<AppProps, AppState> {
 
                 <Route path="/func-counter"
                         component={FuncCounter} />
+
+                <Route path="/brands"
+                        component={BrandList} />
 
 
                 <Route path='*' component={NotFound} />

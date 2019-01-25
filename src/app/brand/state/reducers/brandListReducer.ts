@@ -4,14 +4,19 @@ import { Action } from 'redux';
 import * as ActionTypes  from '../action-types';
 import { InitBrandsAction, LoadingBrandsAction } from '../actions';
 import { Brand } from '../../models/Brand';
- 
-const INITIAL_STATE = {
-    brands: Brand[] = [],
-    loading: boolean = false
+
+interface BrandState {
+    brands: Brand[];
+    loading: boolean;
+};
+
+const INITIAL_STATE: BrandState = {
+    brands: [],
+    loading: false
 };
 
 function brandListReducer(state = INITIAL_STATE, 
-                        action: InitBrandsAction | LoadingBrandsAction) {
+                        action: InitBrandsAction | LoadingBrandsAction): BrandState {
 
     console.log('brandListReducer called', state, action);
 

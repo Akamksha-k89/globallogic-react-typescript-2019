@@ -3,10 +3,12 @@
 import {createStore, combineReducers} from 'redux';
 
 import counterReducer from './state/reducers/counterReducer';
+import brandListReducer from './brand/state/reducers/brandListReducer';
 
 export default function configureStore() {
     const rootReducer = combineReducers({
-        counter: counterReducer
+        counter: counterReducer,
+        brandList: brandListReducer
     });
 
     console.log('creating store');

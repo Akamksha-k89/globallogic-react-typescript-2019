@@ -1,10 +1,11 @@
+// Header.tsx
 import React from 'react';
 
-import {NavLink} from 'react-router-dom';
+import {NavLink, RouteComponentProps} from 'react-router-dom';
 
-interface HeaderProps {
-    title: string;
-    counter: number;
+interface HeaderProps extends RouteComponentProps {
+    title?: string;
+    counter?: number;
 }
 
 // calls the functional component
@@ -25,6 +26,12 @@ function Header(props: HeaderProps) {
             <NavLink to="/products"
                      className="button"
                      activeClassName="success">Products</NavLink>
+
+
+            <NavLink to="/brands"
+                     className="button"
+                     activeClassName="success">Brands</NavLink>
+
 
             <NavLink to="/cart"
                      className="button"
