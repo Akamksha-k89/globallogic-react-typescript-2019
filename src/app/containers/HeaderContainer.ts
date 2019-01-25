@@ -1,3 +1,4 @@
+import { bindActionCreators } from 'redux';
 // containers/HeaderContainer.ts
 import {connect} from 'react-redux';
 
@@ -8,15 +9,22 @@ import * as actions from '../state/actions';
 
 interface HeaderProps {
     counter: number; 
-
+    authenticated: boolean;
 }
  
 function mapStateToProps(state: any): HeaderProps {
     console.log("Header container mapStateToProps ", state);
     return {
-        counter: state.counter
+        counter: state.counter,
+        authenticated: state.auth.authenticated
+    }
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        actions: bindActionCreators(actions, dispatch)
     }
 }
  
 
-export default withRouter(connect(mapStateToProps, null) (Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps) (Header));

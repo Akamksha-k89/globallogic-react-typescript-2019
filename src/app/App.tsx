@@ -15,9 +15,12 @@ import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 
 import ReduxCounter from './components/ReduxCounter';
+import AuthRoute from './components/AuthRoute';
 
 // alias by default
 import FuncCounter from './containers/FuncCounterContainer';
+import Login from './containers/Login';
+
 import BrandList from './brand/containers/BrandList';
 import BrandEdit from './brand/containers/BrandEdit';
 
@@ -100,12 +103,15 @@ class App extends React.Component<AppProps, AppState> {
                 <Route path="/brands" exact
                         component={BrandList} />
 
-                <Route path="/brands/edit/:id"
+                <AuthRoute path="/brands/edit/:id"
                         component={BrandEdit} />
 
-                <Route path="/brands/create"
+                <AuthRoute path="/brands/create"
                         component={BrandEdit} />
 
+
+                <Route path="/login"
+                        component={Login} />
 
                 <Route path='*' component={NotFound} />
             </Switch>

@@ -12,6 +12,7 @@ import thunkMiddleware from 'redux-thunk';
 import counterReducer from './state/reducers/counterReducer';
 import brandListReducer from './brand/state/reducers/brandListReducer';
 import brandEditReducer from './brand/state/reducers/brandEditReducer';
+import authReducer from './state/reducers/authReducer';
 
 
 function logger() {
@@ -39,7 +40,8 @@ export default function configureStore() {
     const rootReducer = combineReducers({
         counter: counterReducer,
         brandList: brandListReducer,
-        brandEdit: brandEditReducer
+        brandEdit: brandEditReducer,
+        auth: authReducer
     });
 
     console.log('creating store');

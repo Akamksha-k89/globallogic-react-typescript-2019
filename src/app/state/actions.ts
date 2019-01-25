@@ -31,3 +31,13 @@ export const decrement = (value: number):CounterAction => ({
 export const reset = (): Action<string> => ({
     type: ActionTypes.RESET
 });
+
+
+export const loggedIn = (): Action<string> => ({
+    type: ActionTypes.LOGGED_IN
+});
+
+
+export const loggedOut = (): Action<string> => ({
+    type: ActionTypes.LOGGED_OUT
+});

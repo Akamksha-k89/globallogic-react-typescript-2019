@@ -6,6 +6,8 @@ import {NavLink, RouteComponentProps} from 'react-router-dom';
 interface HeaderProps extends RouteComponentProps {
     title?: string;
     counter?: number;
+    authenticated?: boolean;
+    actions: any;
 }
 
 // calls the functional component
@@ -68,6 +70,20 @@ function Header(props: HeaderProps) {
                     className="button"
                     activeClassName="success">Func Counter {props.counter} </NavLink>
 
+
+
+            
+            {
+                 props.authenticated?
+                        <button onClick={props.actions.loggedOut}>
+                        Log out
+                        </button>
+                    :
+                    <NavLink to="/login"
+                    className="button"
+                    activeClassName="success">Login </NavLink>
+
+            }
 
             <hr />
         </div>
