@@ -1,3 +1,16 @@
+## CREATE New React Type Script Project
+
+> npx create-react-app book-store --typescript
+
+> cd book-store
+
+> npm install react-redux
+
+
+// remember @types/package-name
+just mention from the package.json
+
+
 ## Get Started
 
 ```bash
@@ -28,6 +41,9 @@ cd data
 c:\data> 
 
 create  a file called db.json
+
+
+c:\data> json-server --watch db.json --port 7070
 
 
 http://localhost:3000/products

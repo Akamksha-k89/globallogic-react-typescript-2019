@@ -6,12 +6,8 @@
       "price": 10000
     }
   ],
-  "brands": [
-
-  ],
-  "orders": [
-
-  ],
+  "brands": [],
+  "orders": [],
   "books": [
     {
       "id": 1,

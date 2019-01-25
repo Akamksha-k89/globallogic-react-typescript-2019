@@ -22,6 +22,8 @@ function Footer(props: FooterProps) {
              <hr />
               <p id="cr">Copyrights {props.company}, @{props.year}</p>
               <Address address={props.address} />
+
+              <img src="/images/logo.png" width={50} height={50} />
         </div>
     )
 }

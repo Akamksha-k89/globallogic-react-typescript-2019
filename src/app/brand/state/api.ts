@@ -1,7 +1,11 @@
 import { Brand } from './../models/Brand';
 // brands/...api.ts
 
-const apiEndPoint = 'http://api.nodesense.ai/api';
+// const apiEndPoint = 'http://api.nodesense.ai/api';
+
+const apiEndPoint = 'http://localhost:7070';
+
+
 
 export const fetchBrands = () => {
     return fetch(`${apiEndPoint}/brands`)
