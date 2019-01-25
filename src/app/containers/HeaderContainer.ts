@@ -7,7 +7,8 @@ import Header from '../components/Header';
 import * as actions from '../state/actions';
 
 interface HeaderProps {
-    counter: number;
+    counter: number; 
+
 }
  
 function mapStateToProps(state: any): HeaderProps {

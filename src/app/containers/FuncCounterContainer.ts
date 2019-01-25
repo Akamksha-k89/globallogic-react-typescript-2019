@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import FuncCounter from '../components/FuncCounter';
 import * as actions from '../state/actions';
 
+import {bindActionCreators} from 'redux';
+
 interface FuncStateProps {
     counter: number;
 }
@@ -12,6 +14,7 @@ interface FuncDispatchProps {
     increment: any;
     decrement: any;
     reset: any;
+    actions: any;
 };
    
 
@@ -51,7 +54,17 @@ function mapDispatchToProps(dispatch: any): FuncDispatchProps {
             console.log('reset called by react comp');
             const action = actions.reset();
             dispatch(action);
-        }
+        },
+
+        // actions is passed as props
+        // props.actions {
+            // increment: wrapper function for action creator and dispatch
+            // decrement
+            // reset
+        // }
+        // calls the action creator and pass if any arguments
+        // dispatch the action
+        actions: bindActionCreators(actions, dispatch)
     }
 }
 

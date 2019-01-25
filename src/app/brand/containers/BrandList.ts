@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import * as actions from '../state/actions';
 import BrandList from '../components/BrandList';
+import { bindActionCreators } from 'redux';
   
 function mapStateToProps(state: any) {
     console.log("BrandList container mapStateToProps ", state);
@@ -14,13 +15,14 @@ function mapStateToProps(state: any) {
  
 function mapDispatchToProps(dispatch: any) {
     return {
-        getProductsFromServer: () => {
-
+        getBrandsFromServer: () => {
+            // callback func
+            const actionFunc = actions.getBrands();
+            // dispatching func
+            dispatch(actionFunc);
         },
 
-        deleteBrand: (id: any) => {
-            
-        }
+        actions: bindActionCreators(actions, dispatch)
     }
 }
  

@@ -16,8 +16,8 @@ import ReduxCounter from './components/ReduxCounter';
 
 // alias by default
 import FuncCounter from './containers/FuncCounterContainer';
-
 import BrandList from './brand/containers/BrandList';
+import BrandEdit from './brand/containers/BrandEdit';
 
 
 import {
@@ -40,8 +40,6 @@ class App extends React.Component<AppProps, AppState> {
     constructor(props: AppProps) {
         super(props);
     }
-
-    
 
     //keyword
     // create and return new virtual dom
@@ -72,12 +70,17 @@ class App extends React.Component<AppProps, AppState> {
                 <Route path="/redux-counter"
                         component={ReduxCounter} />
 
-
                 <Route path="/func-counter"
                         component={FuncCounter} />
 
-                <Route path="/brands"
+                <Route path="/brands" exact
                         component={BrandList} />
+
+                <Route path="/brands/edit/:id"
+                        component={BrandEdit} />
+
+                <Route path="/brands/create"
+                        component={BrandEdit} />
 
 
                 <Route path='*' component={NotFound} />

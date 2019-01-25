@@ -1,5 +1,6 @@
+// brandListReducer.ts
+
 import { Action } from 'redux';
-// counterReducer.ts
 
 import * as ActionTypes  from '../action-types';
 import { InitBrandsAction, LoadingBrandsAction } from '../actions';
@@ -23,14 +24,14 @@ function brandListReducer(state = INITIAL_STATE,
     switch(action.type) {
         case ActionTypes.INIT_BRANDS: {
             // type casting
-            const brandAction = <InitBrandsAction> <unknown> action.payload;
-     
+            const brandAction = <InitBrandsAction>  action;
+            console.log('brandAction', brandAction)
             return {...state, brands: brandAction.payload.brands};
         }
 
         case ActionTypes.LOADING_BRANDS: {
                // type casting
-               const loadingAction = <LoadingBrandsAction> <unknown> action.payload;
+               const loadingAction = <LoadingBrandsAction>  action;
      
                return {...state, loading: loadingAction.payload.loading};
         }

@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 export default class BrandList extends Component<any> {
 
@@ -12,6 +12,7 @@ export default class BrandList extends Component<any> {
 
     componentDidMount() {
         //TODO
+        this.props.getBrandsFromServer();
     }
  
     render() {
@@ -23,6 +24,11 @@ export default class BrandList extends Component<any> {
  
 
         return (
+            <div>
+                <h2>Brands</h2>
+                <NavLink to="/brands/create" className="button">
+                    Create
+                </NavLink>
             <table>
                 <tbody>
                     <tr>
@@ -53,6 +59,7 @@ export default class BrandList extends Component<any> {
                 }
             </tbody>
             </table>
+            </div>
         )
 
     }
